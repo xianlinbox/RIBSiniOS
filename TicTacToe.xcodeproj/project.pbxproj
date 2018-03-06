@@ -13,6 +13,9 @@
 		DF05BEEE204EEEE200C9A445 /* LoggedOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05BEEA204EEEE200C9A445 /* LoggedOutViewController.swift */; };
 		DF05BEEF204EEEE200C9A445 /* LoggedOutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05BEEB204EEEE200C9A445 /* LoggedOutBuilder.swift */; };
 		DF05BEF0204EEEE200C9A445 /* LoggedOutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05BEEC204EEEE200C9A445 /* LoggedOutInteractor.swift */; };
+		DF83C9BF204F1D1D00BAF334 /* LoggedInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF83C9BC204F1D1D00BAF334 /* LoggedInRouter.swift */; };
+		DF83C9C0204F1D1D00BAF334 /* LoggedInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF83C9BD204F1D1D00BAF334 /* LoggedInBuilder.swift */; };
+		DF83C9C1204F1D1D00BAF334 /* LoggedInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF83C9BE204F1D1D00BAF334 /* LoggedInInteractor.swift */; };
 		E9CB1D521F97303800D84847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB1D351F972FD500D84847 /* AppDelegate.swift */; };
 		E9CB1D531F97305A00D84847 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB1D341F972FD500D84847 /* AppComponent.swift */; };
 		E9CB1D611F9730EF00D84847 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB1D371F972FE400D84847 /* RootBuilder.swift */; };
@@ -31,6 +34,9 @@
 		DF05BEEA204EEEE200C9A445 /* LoggedOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutViewController.swift; sourceTree = "<group>"; };
 		DF05BEEB204EEEE200C9A445 /* LoggedOutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutBuilder.swift; sourceTree = "<group>"; };
 		DF05BEEC204EEEE200C9A445 /* LoggedOutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutInteractor.swift; sourceTree = "<group>"; };
+		DF83C9BC204F1D1D00BAF334 /* LoggedInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInRouter.swift; sourceTree = "<group>"; };
+		DF83C9BD204F1D1D00BAF334 /* LoggedInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInBuilder.swift; sourceTree = "<group>"; };
+		DF83C9BE204F1D1D00BAF334 /* LoggedInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInInteractor.swift; sourceTree = "<group>"; };
 		E9894B4A1F972CC500688FCB /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9894B591F972CC500688FCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9CB1D341F972FD500D84847 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
@@ -71,6 +77,16 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		DF83C9BB204F1D0500BAF334 /* LoggedIn */ = {
+			isa = PBXGroup;
+			children = (
+				DF83C9BC204F1D1D00BAF334 /* LoggedInRouter.swift */,
+				DF83C9BD204F1D1D00BAF334 /* LoggedInBuilder.swift */,
+				DF83C9BE204F1D1D00BAF334 /* LoggedInInteractor.swift */,
+			);
+			path = LoggedIn;
+			sourceTree = "<group>";
+		};
 		E9894B411F972CC500688FCB = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +110,7 @@
 			children = (
 				7EDD59511FA135E9005EC8B2 /* Resources */,
 				E9CB1D331F972FD500D84847 /* AppStart */,
+				DF83C9BB204F1D0500BAF334 /* LoggedIn */,
 				E9CB1D421F972FE400D84847 /* LoggedOut */,
 				E9CB1D361F972FE400D84847 /* Root */,
 				E9894B591F972CC500688FCB /* Info.plist */,
@@ -275,12 +292,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9CB1D521F97303800D84847 /* AppDelegate.swift in Sources */,
+				DF83C9BF204F1D1D00BAF334 /* LoggedInRouter.swift in Sources */,
 				DF05BEEF204EEEE200C9A445 /* LoggedOutBuilder.swift in Sources */,
 				E9CB1D641F9730EF00D84847 /* RootInteractor.swift in Sources */,
 				E9CB1D631F9730EF00D84847 /* RootComponent+LoggedOut.swift in Sources */,
+				DF83C9C1204F1D1D00BAF334 /* LoggedInInteractor.swift in Sources */,
 				E9CB1D611F9730EF00D84847 /* RootBuilder.swift in Sources */,
 				DF05BEF0204EEEE200C9A445 /* LoggedOutInteractor.swift in Sources */,
 				DF05BEED204EEEE200C9A445 /* LoggedOutRouter.swift in Sources */,
+				DF83C9C0204F1D1D00BAF334 /* LoggedInBuilder.swift in Sources */,
 				E9CB1D531F97305A00D84847 /* AppComponent.swift in Sources */,
 				E9CB1D651F9730EF00D84847 /* RootRouter.swift in Sources */,
 				E9CB1D661F9730EF00D84847 /* RootViewController.swift in Sources */,
