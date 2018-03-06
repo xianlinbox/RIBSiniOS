@@ -10,44 +10,46 @@ import RIBs
 import RxSwift
 
 protocol LoggedOutRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+  // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
 protocol LoggedOutPresentable: Presentable {
-    weak var listener: LoggedOutPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+  weak var listener: LoggedOutPresentableListener? { get set }
+  // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
 protocol LoggedOutListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+  // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+  func didLogin(withPlayer1Name player1:String, player2Name:String)
 }
 
 final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, LoggedOutInteractable, LoggedOutPresentableListener {
-
-    weak var router: LoggedOutRouting?
-    weak var listener: LoggedOutListener?
-
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: LoggedOutPresentable) {
-        super.init(presenter: presenter)
-        presenter.listener = self
-    }
-
-    override func didBecomeActive() {
-        super.didBecomeActive()
-        // TODO: Implement business logic here.
-    }
-
-    override func willResignActive() {
-        super.willResignActive()
-        // TODO: Pause any business logic.
-    }
+  
+  weak var router: LoggedOutRouting?
+  weak var listener: LoggedOutListener?
+  
+  // TODO: Add additional dependencies to constructor. Do not perform any logic
+  // in constructor.
+  override init(presenter: LoggedOutPresentable) {
+    super.init(presenter: presenter)
+    presenter.listener = self
+  }
+  
+  override func didBecomeActive() {
+    super.didBecomeActive()
+    // TODO: Implement business logic here.
+  }
+  
+  override func willResignActive() {
+    super.willResignActive()
+    // TODO: Pause any business logic.
+  }
   
   func login(withPlayer1Name player1Name: String?, withPlayer2Name player2Name: String?) {
     let p1 = player1Name ?? "Player 1"
     let p2 = player2Name ?? "Player 2"
     
-    print("\(p1) vs \(p2)")
+    listener?.didLogin(withPlayer1Name: p1, player2Name: p2)
   }
 }
+
