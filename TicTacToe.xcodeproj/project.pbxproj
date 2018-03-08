@@ -16,6 +16,7 @@
 		DF83C9BF204F1D1D00BAF334 /* LoggedInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF83C9BC204F1D1D00BAF334 /* LoggedInRouter.swift */; };
 		DF83C9C0204F1D1D00BAF334 /* LoggedInBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF83C9BD204F1D1D00BAF334 /* LoggedInBuilder.swift */; };
 		DF83C9C1204F1D1D00BAF334 /* LoggedInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF83C9BE204F1D1D00BAF334 /* LoggedInInteractor.swift */; };
+		DF83C9C3204F42CA00BAF334 /* RootComponent+LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF83C9C2204F42CA00BAF334 /* RootComponent+LoggedIn.swift */; };
 		E9CB1D521F97303800D84847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB1D351F972FD500D84847 /* AppDelegate.swift */; };
 		E9CB1D531F97305A00D84847 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB1D341F972FD500D84847 /* AppComponent.swift */; };
 		E9CB1D611F9730EF00D84847 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB1D371F972FE400D84847 /* RootBuilder.swift */; };
@@ -37,6 +38,7 @@
 		DF83C9BC204F1D1D00BAF334 /* LoggedInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInRouter.swift; sourceTree = "<group>"; };
 		DF83C9BD204F1D1D00BAF334 /* LoggedInBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInBuilder.swift; sourceTree = "<group>"; };
 		DF83C9BE204F1D1D00BAF334 /* LoggedInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInInteractor.swift; sourceTree = "<group>"; };
+		DF83C9C2204F42CA00BAF334 /* RootComponent+LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+LoggedIn.swift"; sourceTree = "<group>"; };
 		E9894B4A1F972CC500688FCB /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9894B591F972CC500688FCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9CB1D341F972FD500D84847 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				E9CB1D371F972FE400D84847 /* RootBuilder.swift */,
 				E9CB1D391F972FE400D84847 /* RootComponent+LoggedOut.swift */,
+				DF83C9C2204F42CA00BAF334 /* RootComponent+LoggedIn.swift */,
 				E9CB1D3A1F972FE400D84847 /* RootInteractor.swift */,
 				E9CB1D3B1F972FE400D84847 /* RootRouter.swift */,
 				E9CB1D3C1F972FE400D84847 /* RootViewController.swift */,
@@ -295,6 +298,7 @@
 				DF83C9BF204F1D1D00BAF334 /* LoggedInRouter.swift in Sources */,
 				DF05BEEF204EEEE200C9A445 /* LoggedOutBuilder.swift in Sources */,
 				E9CB1D641F9730EF00D84847 /* RootInteractor.swift in Sources */,
+				DF83C9C3204F42CA00BAF334 /* RootComponent+LoggedIn.swift in Sources */,
 				E9CB1D631F9730EF00D84847 /* RootComponent+LoggedOut.swift in Sources */,
 				DF83C9C1204F1D1D00BAF334 /* LoggedInInteractor.swift in Sources */,
 				E9CB1D611F9730EF00D84847 /* RootBuilder.swift in Sources */,

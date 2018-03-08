@@ -13,11 +13,12 @@ protocol LoggedInInteractable: Interactable {
     weak var listener: LoggedInListener? { get set }
 }
 
-protocol LoggedInViewControllable: ViewControllable {
+protocol LoggedInViewControllable: RootViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy. Since
     // this RIB does not own its own view, this protocol is conformed to by one of this
     // RIB's ancestor RIBs' view.
 }
+extension RootViewController: LoggedInViewControllable {}
 
 final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
 
