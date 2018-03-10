@@ -18,7 +18,6 @@ protocol LoggedInViewControllable: RootViewControllable {
     // this RIB does not own its own view, this protocol is conformed to by one of this
     // RIB's ancestor RIBs' view.
 }
-extension RootViewController: LoggedInViewControllable {}
 
 final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
 

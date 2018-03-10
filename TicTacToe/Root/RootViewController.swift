@@ -54,3 +54,6 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
   }
 }
 
+extension RootViewController: LoggedInViewControllable {
+  
+}
