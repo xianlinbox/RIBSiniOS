@@ -8,7 +8,7 @@
 
 import RIBs
 
-protocol LoggedInInteractable: Interactable {
+protocol LoggedInInteractable: Interactable, OffGameListener {
   weak var router: LoggedInRouting? { get set }
   weak var listener: LoggedInListener? { get set }
 }
@@ -37,5 +37,13 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
   // MARK: - Private
   private let viewController: LoggedInViewControllable
   private let offGameBuildable: OffGameBuildable
+  private var currentChild: ViewableRouting?
+  
+  private func attachCurrentChild() {
+    let offGame = offGameBuildable.build(withListener: interactor)
+    self.currentChild = offGame
+    attachChild(offGame)
+    viewController.present(viewController: offGame.viewControllable)
+  }
 }
 
