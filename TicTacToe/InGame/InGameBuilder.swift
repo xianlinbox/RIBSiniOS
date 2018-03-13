@@ -31,7 +31,7 @@ final class InGameBuilder: Builder<InGameDependency>, InGameBuildable {
     }
 
     func build(withListener listener: InGameListener) -> InGameRouting {
-        let component = InGameComponent(dependency: dependency)
+//        let component = InGameComponent(dependency: dependency)
         let viewController = InGameViewController()
         let interactor = InGameInteractor(presenter: viewController)
         interactor.listener = listener
