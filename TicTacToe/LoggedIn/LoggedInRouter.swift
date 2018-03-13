@@ -24,9 +24,10 @@ protocol LoggedInViewControllable: RootViewControllable {
 final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
   
   // TODO: Constructor inject child builder protocols to allow building children.
-  init(interactor: LoggedInInteractable, viewController: LoggedInViewControllable, offGameBuildable:OffGameBuildable) {
+  init(interactor: LoggedInInteractable, viewController: LoggedInViewControllable, offGameBuildable: OffGameBuildable, inGameBuilder: InGameBuildable) {
     self.viewController = viewController
     self.offGameBuildable = offGameBuildable
+    self.inGameBuilder = inGameBuilder
     super.init(interactor: interactor)
     interactor.router = self
   }
@@ -45,6 +46,7 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
   // MARK: - Private
   private let viewController: LoggedInViewControllable
   private let offGameBuildable: OffGameBuildable
+  private let inGameBuilder: InGameBuildable
   private var currentChild: ViewableRouting?
   
   private func attachOffGame() {
