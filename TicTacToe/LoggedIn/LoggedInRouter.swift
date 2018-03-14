@@ -37,6 +37,15 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
     attachOffGame()
   }
   
+  func routeToInGame() {
+    
+  }
+  
+  func routeToOffGame() {
+    detachCurrentChild()
+    attachOffGame()
+  }
+  
   func cleanupViews() {
     if let currentChild = currentChild {
       viewController.dismiss(viewController: currentChild.viewControllable)
@@ -54,6 +63,13 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
     self.currentChild = offGame
     attachChild(offGame)
     viewController.present(viewController: offGame.viewControllable)
+  }
+  
+  private func detachCurrentChild() {
+    if let currentChild = currentChild {
+      detachChild(currentChild)
+      viewController.dismiss(viewController: currentChild.viewControllable)
+    }
   }
 }
 
