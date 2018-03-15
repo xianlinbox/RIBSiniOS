@@ -1,4 +1,6 @@
 PODS:
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
   - RIBs (0.9.1):
     - RxSwift (~> 4.0)
   - RxCocoa (4.0.0):
@@ -7,16 +9,20 @@ PODS:
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - Nimble
+  - Quick
   - RIBs
   - RxCocoa (~> 4.0.0)
   - SnapKit (~> 4.0.0)
 
 SPEC CHECKSUMS:
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RIBs: 879184fbca567425c488d6b3d14a9c5abfbf9d47
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: c6e3b1c7b325c7d121cd4327e9d98b7ed746b570
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 015316481b2336986a3416b8dfdbdb0a93e16b37
+PODFILE CHECKSUM: d2a72c5ba8bde4c703e44fa8422361cbff980da3
 
 COCOAPODS: 1.4.0

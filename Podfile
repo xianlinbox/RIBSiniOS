@@ -8,3 +8,8 @@ target 'TicTacToe' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'RxCocoa', '~> 4.0.0'
 end
+
+target 'TicTacToeTests' do
+  pod 'Quick'
+  pod 'Nimble'
+end
