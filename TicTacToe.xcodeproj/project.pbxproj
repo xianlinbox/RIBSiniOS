@@ -27,7 +27,6 @@
 		DF9E996720585DF60079E34C /* InGameBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9E996320585DF60079E34C /* InGameBuilder.swift */; };
 		DF9E996820585DF60079E34C /* InGameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9E996420585DF60079E34C /* InGameInteractor.swift */; };
 		DFC8F222205AAC0400D46DC5 /* TicTacToeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC8F221205AAC0400D46DC5 /* TicTacToeTests.swift */; };
-		DFC8F22C205AADEB00D46DC5 /* RootInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC8F22A205AADEB00D46DC5 /* RootInteractorTests.swift */; };
 		DFC8F22D205AADEB00D46DC5 /* RootRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC8F22B205AADEB00D46DC5 /* RootRouterTests.swift */; };
 		DFC8F231205AAEE400D46DC5 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC8F230205AAEE400D46DC5 /* Mocks.swift */; };
 		E9CB1D521F97303800D84847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB1D351F972FD500D84847 /* AppDelegate.swift */; };
@@ -75,7 +74,6 @@
 		DFC8F21F205AAC0400D46DC5 /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFC8F221205AAC0400D46DC5 /* TicTacToeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeTests.swift; sourceTree = "<group>"; };
 		DFC8F223205AAC0400D46DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DFC8F22A205AADEB00D46DC5 /* RootInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractorTests.swift; sourceTree = "<group>"; };
 		DFC8F22B205AADEB00D46DC5 /* RootRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouterTests.swift; sourceTree = "<group>"; };
 		DFC8F230205AAEE400D46DC5 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		E7D531E212C210437EBD40DB /* Pods-TicTacToeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TicTacToeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TicTacToeTests/Pods-TicTacToeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 		DFC8F229205AADCF00D46DC5 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				DFC8F22A205AADEB00D46DC5 /* RootInteractorTests.swift */,
 				DFC8F22B205AADEB00D46DC5 /* RootRouterTests.swift */,
 			);
 			path = Root;
@@ -487,7 +484,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFC8F22D205AADEB00D46DC5 /* RootRouterTests.swift in Sources */,
-				DFC8F22C205AADEB00D46DC5 /* RootInteractorTests.swift in Sources */,
 				DFC8F222205AAC0400D46DC5 /* TicTacToeTests.swift in Sources */,
 				DFC8F231205AAEE400D46DC5 /* Mocks.swift in Sources */,
 			);
