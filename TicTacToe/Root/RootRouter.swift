@@ -49,14 +49,14 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
   }
   
   //MARK: - Root Routing
-  func routeToLoggedIn(withPlayer1 payer1: String, player2: String) {
+  func routeToLoggedIn(withPlayer1 player1: String, player2: String) {
     if let loggedOut = self.loggedOut {
       detachChild(loggedOut)
       viewController.dismiss(viewController: loggedOut.viewControllable)
       self.loggedOut = loggedOut
     }
     
-    let loggedIn = loggedInBuilder.build(withListener: interactor)
+    let loggedIn = loggedInBuilder.build(withListener: interactor, player1: player1, player2: player2)
     attachChild(loggedIn)
   }
   
