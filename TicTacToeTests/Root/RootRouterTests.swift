@@ -25,7 +25,7 @@ final class RootRouterTests: XCTestCase {
     router = RootRouter(interactor: rootInteractor, viewController: viewController, loggedOutBuilder: loggedOutBuilder, loggedInBuilder: loggedInBuilder)
   }
   
-  func test_routeToLoggedIn_invokesToExampleResult() {
+  func test_routeToLoggedIn_invokesToBuilderAndRouter() {
     let loggedInRouter = LoggedInRoutingMock(interactable: LoggedInInteractableMock())
     var assignedListener: LoggedInListener? = nil
     loggedInBuilder.buildHandler = { (_ listener: LoggedInListener) -> (LoggedInRouting) in
