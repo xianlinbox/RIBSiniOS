@@ -34,7 +34,7 @@ final class LoggedInRouter: Router<LoggedInInteractable>, LoggedInRouting {
   
   override func didLoad() {
     super.didLoad()
-    attachInGame()
+    attachOffGame()
   }
   
   func routeToInGame() {
