@@ -45,11 +45,8 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
     // TODO: Pause any business logic.
   }
   
-  func login(withPlayer1Name player1Name: String?, withPlayer2Name player2Name: String?) {
-    let p1 = player1Name ?? "Player 1"
-    let p2 = player2Name ?? "Player 2"
-    
-    listener?.didLogin(withPlayer1Name: p1, player2: p2)
+  func login(withPlayer1Name player1Name: String, withPlayer2Name player2Name: String) {
+    listener?.didLogin(withPlayer1Name: player1Name, player2: player2Name)
   }
 }
 
