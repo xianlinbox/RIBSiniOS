@@ -74,7 +74,9 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
   }
   
   @objc private func didTapLoginButton() {
-    listener?.login(withPlayer1Name: player1Field?.text, withPlayer2Name: player2Field?.text)
+    let player1Name = (player1Field?.text ?? "").isEmpty ? "Player 1" : player1Field?.text
+    let player2Name = (player2Field?.text ?? "").isEmpty ? "Player 2" : player2Field?.text
+    listener?.login(withPlayer1Name: player1Name , withPlayer2Name: player2Name)
   }
 }
 
