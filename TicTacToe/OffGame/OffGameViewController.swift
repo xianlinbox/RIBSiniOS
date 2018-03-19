@@ -37,8 +37,20 @@ final class OffGameViewController: UIViewController, OffGamePresentable, OffGame
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.yellow
-//    buildStartButton()
+    buildStartButton()
     buildPlayerLabels()
+  }
+  private func buildStartButton() {
+    let startButton = UIButton()
+    view.addSubview(startButton)
+    startButton.snp.makeConstraints { (maker: ConstraintMaker) in
+      maker.center.equalTo(self.view.snp.center)
+      maker.leading.trailing.equalTo(self.view).inset(40)
+      maker.height.equalTo(100)
+    }
+    startButton.setTitle("Start Game", for: .normal)
+    startButton.setTitleColor(UIColor.white, for: .normal)
+    startButton.backgroundColor = UIColor.black
   }
   
   private func buildPlayerLabels() {
