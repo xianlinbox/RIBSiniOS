@@ -40,9 +40,9 @@ final class InGameViewController: UIViewController, InGamePresentable, InGameVie
     let indexPathRow = row * GameConstants.colCount + col
     let color: UIColor = {
       switch playerType {
-      case .red:
+      case .player1:
         return UIColor.red
-      case .blue:
+      case .player2:
         return UIColor.blue
       }
     }()
@@ -53,9 +53,9 @@ final class InGameViewController: UIViewController, InGamePresentable, InGameVie
   func announce(winner: PlayerType) {
     let winnerString: String = {
       switch winner {
-      case .red:
+      case .player1:
         return "Red"
-      case .blue:
+      case .player2:
         return "Blue"
       }
     }()

@@ -54,8 +54,8 @@ final class InGameInteractor: PresentableInteractor<InGamePresentable>, InGameIn
 }
 
 enum PlayerType: Int {
-  case red = 1
-  case blue
+  case player1 = 1
+  case player2
 }
 
 struct GameConstants {
