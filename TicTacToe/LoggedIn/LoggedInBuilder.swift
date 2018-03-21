@@ -15,10 +15,9 @@ protocol LoggedInDependency: Dependency {
   // created by this RIB.
 }
 
-final class LoggedInComponent: Component<LoggedInDependency>, OffGameDependency, InGameDependency {
+final class LoggedInComponent: Component<LoggedInDependency>, InGameDependency {
   let player1Name:String
   let player2Name:String
-  
   var mutableScoreStream: MutableScoreStream {
     return shared { ScoreStreamImpl() }
   }
@@ -32,10 +31,13 @@ final class LoggedInComponent: Component<LoggedInDependency>, OffGameDependency,
   fileprivate var LoggedInViewController: LoggedInViewControllable {
     return dependency.LoggedInViewController
   }
-  
-  // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
 
+extension LoggedInComponent: OffGameDependency {
+  var scoreStream: ScoreStream {
+    return mutableScoreStream
+  }
+}
 // MARK: - Builder
 
 protocol LoggedInBuildable: Buildable {
