@@ -19,6 +19,10 @@ final class LoggedInComponent: Component<LoggedInDependency>, OffGameDependency,
   let player1Name:String
   let player2Name:String
   
+  var mutableScoreStream: MutableScoreStream {
+    return shared { ScoreStreamImpl() }
+  }
+  
   init(dependency: LoggedInDependency, player1: String, player2: String) {
     self.player1Name = player1
     self.player2Name = player2
@@ -46,7 +50,7 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
   
   func build(withListener listener: LoggedInListener, player1: String, player2: String) -> LoggedInRouting {
     let component = LoggedInComponent(dependency: dependency, player1: player1, player2: player2)
-    let interactor = LoggedInInteractor()
+    let interactor = LoggedInInteractor(scoreStream: component.mutableScoreStream)
     interactor.listener = listener
     
     let offGameBuilder = OffGameBuilder(dependency: component)
