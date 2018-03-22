@@ -15,12 +15,14 @@ protocol OffGameRouting: ViewableRouting {
 
 protocol OffGamePresentable: Presentable {
   weak var listener: OffGamePresentableListener? { get set }
+  func set(score: Score)
 }
 
 protocol OffGameListener: class {
 }
 
 final class OffGameInteractor: PresentableInteractor<OffGamePresentable>, OffGameInteractable, OffGamePresentableListener {
+  
   
   weak var router: OffGameRouting?
   weak var listener: OffGameListener?
@@ -33,13 +35,29 @@ final class OffGameInteractor: PresentableInteractor<OffGamePresentable>, OffGam
   
   override func didBecomeActive() {
     super.didBecomeActive()
+    updateScore()
   }
   
   override func willResignActive() {
     super.willResignActive()
   }
   
+  //Mark: - OffGamePresentableListener
+  func startGame() {
+    
+  }
+  
+  
   //Mark: - private
   private let scoreStream:ScoreStream
+  
+  private func updateScore() {
+    scoreStream.score
+      .subscribe(
+        onNext: { (score: Score) in
+          self.presenter.set(score: score)
+      })
+      .disposeOnDeactivate(interactor: self)
+  }
 }
 

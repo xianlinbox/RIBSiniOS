@@ -7,22 +7,19 @@
 //
 
 import RIBs
+import RxCocoa
 import RxSwift
 import UIKit
 import SnapKit
 
 protocol OffGamePresentableListener: class {
-  // TODO: Declare properties and methods that the view controller can invoke to perform
-  // business logic, such as signIn(). This protocol is implemented by the corresponding
-  // interactor class.
+  func startGame()
 }
 
 final class OffGameViewController: UIViewController, OffGamePresentable, OffGameViewControllable {
   
   weak var listener: OffGamePresentableListener?
-  private let player1Name: String
-  private let player2Name: String
- 
+  
   required init?(coder aDecoder: NSCoder) {
     fatalError("Method is not supported")
   }
@@ -40,6 +37,20 @@ final class OffGameViewController: UIViewController, OffGamePresentable, OffGame
     buildStartButton()
     buildPlayerLabels()
   }
+  
+  // MARK: - OffGamePresentable
+  func set(score: Score) {
+    self.score = score
+  }
+  
+  // MARK: - OffGamePresentable
+  private let player1Name: String
+  private let player2Name: String
+  private var player1Label: UILabel?
+  private var player2Label: UILabel?
+  private var score: Score?
+  private let disposeBag = DisposeBag()
+  
   private func buildStartButton() {
     let startButton = UIButton()
     view.addSubview(startButton)
@@ -51,6 +62,12 @@ final class OffGameViewController: UIViewController, OffGamePresentable, OffGame
     startButton.setTitle("Start Game", for: .normal)
     startButton.setTitleColor(UIColor.white, for: .normal)
     startButton.backgroundColor = UIColor.black
+    
+    startButton.rx.tap
+      .subscribe(onNext: { [weak self] in
+        self?.listener?.startGame()
+      })
+      .disposed(by: disposeBag)
   }
   
   private func buildPlayerLabels() {
@@ -65,6 +82,7 @@ final class OffGameViewController: UIViewController, OffGamePresentable, OffGame
     }
     
     let player1Label = labelBuilder(UIColor.blue, player1Name)
+    self.player1Label = player1Label
     view.addSubview(player1Label)
     player1Label.snp.makeConstraints { (maker: ConstraintMaker) in
       maker.top.equalTo(self.view).offset(70)
@@ -86,11 +104,22 @@ final class OffGameViewController: UIViewController, OffGamePresentable, OffGame
     }
     
     let player2Label = labelBuilder(UIColor.red, player2Name)
+    self.player2Label = player2Label
     view.addSubview(player2Label)
     player2Label.snp.makeConstraints { (maker: ConstraintMaker) in
       maker.top.equalTo(vsLabel.snp.bottom).offset(10)
       maker.height.leading.trailing.equalTo(player1Label)
     }
+    updatePlayerLabels()
   }
+  
+  private func updatePlayerLabels() {
+    let player1Score = score?.player1Score ?? 0
+    player1Label?.text = "\(player1Name) (\(player1Score))"
+    
+    let player2Score = score?.player2Score ?? 0
+    player2Label?.text = "\(player2Name) (\(player2Score))"
+  }
+  
 }
 
