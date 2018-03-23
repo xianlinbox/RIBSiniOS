@@ -19,6 +19,7 @@ protocol OffGamePresentable: Presentable {
 }
 
 protocol OffGameListener: class {
+  func startGame()
 }
 
 final class OffGameInteractor: PresentableInteractor<OffGamePresentable>, OffGameInteractable, OffGamePresentableListener {
@@ -44,7 +45,7 @@ final class OffGameInteractor: PresentableInteractor<OffGamePresentable>, OffGam
   
   //Mark: - OffGamePresentableListener
   func startGame() {
-    
+    listener?.startGame()
   }
   
   

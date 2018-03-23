@@ -20,6 +20,8 @@ protocol LoggedInListener: class {
 }
 
 final class LoggedInInteractor: Interactor, LoggedInInteractable {
+  
+  
   weak var router: LoggedInRouting?
   weak var listener: LoggedInListener?
   
@@ -38,6 +40,11 @@ final class LoggedInInteractor: Interactor, LoggedInInteractable {
   
   func gameDidEnd() {
     router?.routeToOffGame()
+  }
+  
+  //Mark:
+  func startGame() {
+    router?.routeToInGame()
   }
   
   //Mark: - private
