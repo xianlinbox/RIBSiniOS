@@ -16,10 +16,11 @@ protocol InGameRouting: ViewableRouting {
 protocol InGamePresentable: Presentable {
   weak var listener: InGamePresentableListener? { get set }
   func setCell(atRow: Int, col: Int, withPlayerType: PlayerType)
+  func announce(winner: PlayerType, withCompletionHandler handler: @escaping () -> ())
 }
 
 protocol InGameListener: class {
-//  func gameDidEnd(withWinner winner:PlayerType)
+  func gameDidEnd(withWinner winner:PlayerType)
   
 }
 
@@ -40,7 +41,6 @@ final class InGameInteractor: PresentableInteractor<InGamePresentable>, InGameIn
   
   override func willResignActive() {
     super.willResignActive()
-    // TODO: Pause any business logic.
   }
   
   func placeCurrentPlayerMark(atRow row: Int, col: Int){
@@ -50,10 +50,12 @@ final class InGameInteractor: PresentableInteractor<InGamePresentable>, InGameIn
     board[row][col] = currentPlayer
     presenter.setCell(atRow: row, col: col, withPlayerType: currentPlayer)
     self.currentPlayer = (currentPlayer == .player1) ?  .player2 : .player1
-  }
-  
-  func closeGame() {
     
+    if let winner = checkWinner() {
+      presenter.announce(winner: winner, withCompletionHandler: {
+        self.listener?.gameDidEnd(withWinner: winner)
+      })
+    }
   }
   
   //Mark: - private

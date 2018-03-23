@@ -13,13 +13,11 @@ import SnapKit
 
 protocol InGamePresentableListener: class {
   func placeCurrentPlayerMark(atRow row: Int, col: Int)
-  func closeGame()
 }
 
 final class InGameViewController: UIViewController, InGamePresentable, InGameViewControllable {
-
-    weak var listener: InGamePresentableListener?
-
+  weak var listener: InGamePresentableListener?
+  
   init() {
     super.init(nibName: nil, bundle: nil)
   }
@@ -30,7 +28,6 @@ final class InGameViewController: UIViewController, InGamePresentable, InGameVie
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     view.backgroundColor = UIColor.yellow
     buildCollectionView()
   }
@@ -50,7 +47,7 @@ final class InGameViewController: UIViewController, InGamePresentable, InGameVie
     cell?.backgroundColor = color
   }
   
-  func announce(winner: PlayerType) {
+  func announce(winner: PlayerType, withCompletionHandler handler: @escaping () -> ()) {
     let winnerString: String = {
       switch winner {
       case .player1:
@@ -60,8 +57,8 @@ final class InGameViewController: UIViewController, InGamePresentable, InGameVie
       }
     }()
     let alert = UIAlertController(title: "\(winnerString) Won!", message: nil, preferredStyle: .alert)
-    let closeAction = UIAlertAction(title: "Close Game", style: UIAlertActionStyle.default) { [weak self] _ in
-      self?.listener?.closeGame()
+    let closeAction = UIAlertAction(title: "Close Game", style: UIAlertActionStyle.default) { _ in
+      handler()
     }
     alert.addAction(closeAction)
     present(alert, animated: true, completion: nil)
@@ -127,3 +124,4 @@ extension InGameViewController: UICollectionViewDelegate {
     listener?.placeCurrentPlayerMark(atRow: row, col: col)
   }
 }
+
