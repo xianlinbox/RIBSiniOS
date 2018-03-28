@@ -27,7 +27,6 @@ protocol RootViewControllable: ViewControllable {
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
-  
   init(interactor: RootInteractable,
        viewController: RootViewControllable,
        loggedOutBuilder: LoggedOutBuildable,
@@ -60,10 +59,17 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     attachChild(loggedIn)
   }
   
+  //MARK: - UrlHandler
+  func handle(_ url: URL) {
+    let lauchGameWorkflow = LaunchGameWorkflow(url:url)
+    lauchGameWorkflow
+      .subscribe(self)
+      .disposeOnDeactivate(interactor:self)
+    
+  }
   // MARK: - Private
   private let loggedOutBuilder: LoggedOutBuildable
   private let loggedInBuilder: LoggedInBuildable
-  
   private var loggedOut: ViewableRouting?
 }
 

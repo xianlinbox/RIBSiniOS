@@ -19,6 +19,10 @@ protocol LoggedInListener: class {
   // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
+public protocol LoggedInActionableItem: class {
+  func launchGame(with id: String?) -> Observable<(LoggedInActionableItem, ())>
+}
+
 final class LoggedInInteractor: Interactor, LoggedInInteractable {
   weak var router: LoggedInRouting?
   weak var listener: LoggedInListener?

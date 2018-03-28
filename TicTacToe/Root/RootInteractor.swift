@@ -17,7 +17,7 @@
 import RIBs
 import RxSwift
 
-protocol RootRouting: ViewableRouting {
+protocol RootRouting: ViewableRouting, UrlHandler {
   // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
   func routeToLoggedIn(withPlayer1 payer1:String, player2:String)
 }
@@ -30,6 +30,11 @@ protocol RootPresentable: Presentable {
 protocol RootListener: class {
   // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
+
+public protocol RootActionableItem: class {
+  func waitForLogin() -> Observable<(LoggedInActionableItem, ())>
+}
+
 
 final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
   
