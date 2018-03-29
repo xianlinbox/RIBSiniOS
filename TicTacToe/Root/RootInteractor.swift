@@ -17,7 +17,7 @@
 import RIBs
 import RxSwift
 
-protocol RootRouting: ViewableRouting, UrlHandler {
+protocol RootRouting: ViewableRouting {
   // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
   func routeToLoggedIn(withPlayer1 payer1:String, player2:String)
 }
@@ -36,10 +36,9 @@ public protocol RootActionableItem: class {
 }
 
 
-final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
-  
+final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener, RootActionableItem,
+UrlHandler {
   weak var router: RootRouting?
-  
   weak var listener: RootListener?
   
   // TODO: Add additional dependencies to constructor. Do not perform any logic
@@ -62,5 +61,23 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
   func didLogin(withPlayer1Name player1: String, player2: String) {
     router?.routeToLoggedIn(withPlayer1: player1, player2: player2)
   }
+  
+  func waitForLogin() -> Observable<(LoggedInActionableItem, ())> {
+    return loggedInActionableItemSubject
+      .map { (loggedInItem: LoggedInActionableItem) -> (LoggedInActionableItem, ()) in
+        (loggedInItem, ())
+    }
+  }
+  //MARK: - UrlHandler
+  func handle(_ url: URL) {
+    let lauchGameWorkflow = LaunchGameWorkflow(url:url)
+    lauchGameWorkflow
+      .subscribe(self)
+      .disposeOnDeactivate(interactor:self)
+    
+  }
+  
+  //MARK: - private
+  private let loggedInActionableItemSubject = ReplaySubject<LoggedInActionableItem>.create(bufferSize: 1)
 }
 
