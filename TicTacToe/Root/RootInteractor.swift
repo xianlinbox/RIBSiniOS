@@ -18,17 +18,14 @@ import RIBs
 import RxSwift
 
 protocol RootRouting: ViewableRouting {
-  // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
   func routeToLoggedIn(withPlayer1 payer1:String, player2:String)
 }
 
 protocol RootPresentable: Presentable {
   var listener: RootPresentableListener? { get set }
-  // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
 protocol RootListener: class {
-  // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
 public protocol RootActionableItem: class {

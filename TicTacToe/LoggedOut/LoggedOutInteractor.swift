@@ -10,16 +10,13 @@ import RIBs
 import RxSwift
 
 protocol LoggedOutRouting: ViewableRouting {
-  // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
 protocol LoggedOutPresentable: Presentable {
-  weak var listener: LoggedOutPresentableListener? { get set }
-  // TODO: Declare methods the interactor can invoke the presenter to present data.
+  var listener: LoggedOutPresentableListener? { get set }
 }
 
 protocol LoggedOutListener: class {
-  // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
   func didLogin(withPlayer1Name player1:String, player2:String)
 }
 
@@ -28,8 +25,6 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
   weak var router: LoggedOutRouting?
   weak var listener: LoggedOutListener?
   
-  // TODO: Add additional dependencies to constructor. Do not perform any logic
-  // in constructor.
   override init(presenter: LoggedOutPresentable) {
     super.init(presenter: presenter)
     presenter.listener = self
