@@ -14,7 +14,7 @@ protocol InGameRouting: ViewableRouting {
 }
 
 protocol InGamePresentable: Presentable {
-  weak var listener: InGamePresentableListener? { get set }
+  var listener: InGamePresentableListener? { get set }
   func setCell(atRow: Int, col: Int, withPlayerType: PlayerType)
   func announce(winner: PlayerType, withCompletionHandler handler: @escaping () -> ())
 }

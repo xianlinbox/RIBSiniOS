@@ -9,19 +9,19 @@
 import RIBs
 
 protocol InGameInteractable: Interactable {
-    weak var router: InGameRouting? { get set }
-    weak var listener: InGameListener? { get set }
+  var router: InGameRouting? { get set }
+  var listener: InGameListener? { get set }
 }
 
 protocol InGameViewControllable: ViewControllable {
-    // TODO: Declare methods the router invokes to manipulate the view hierarchy.
+  // TODO: Declare methods the router invokes to manipulate the view hierarchy.
 }
 
 final class InGameRouter: ViewableRouter<InGameInteractable, InGameViewControllable>, InGameRouting {
-
-    // TODO: Constructor inject child builder protocols to allow building children.
-    override init(interactor: InGameInteractable, viewController: InGameViewControllable) {
-        super.init(interactor: interactor, viewController: viewController)
-        interactor.router = self
-    }
+  
+  // TODO: Constructor inject child builder protocols to allow building children.
+  override init(interactor: InGameInteractable, viewController: InGameViewControllable) {
+    super.init(interactor: interactor, viewController: viewController)
+    interactor.router = self
+  }
 }
