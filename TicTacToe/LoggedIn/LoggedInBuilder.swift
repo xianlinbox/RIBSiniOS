@@ -41,7 +41,7 @@ extension LoggedInComponent: OffGameDependency {
 // MARK: - Builder
 
 protocol LoggedInBuildable: Buildable {
-  func build(withListener listener: LoggedInListener, player1: String, player2: String) -> LoggedInRouting
+  func build(withListener listener: LoggedInListener, player1: String, player2: String) -> (router:LoggedInRouter, actionaleItem: LoggedInActionableItem)
 }
 
 final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
@@ -50,14 +50,15 @@ final class LoggedInBuilder: Builder<LoggedInDependency>, LoggedInBuildable {
     super.init(dependency: dependency)
   }
   
-  func build(withListener listener: LoggedInListener, player1: String, player2: String) -> LoggedInRouting {
+  func build(withListener listener: LoggedInListener, player1: String, player2: String) -> (router:LoggedInRouter, actionaleItem: LoggedInActionableItem) {
     let component = LoggedInComponent(dependency: dependency, player1: player1, player2: player2)
     let interactor = LoggedInInteractor(scoreStream: component.mutableScoreStream)
     interactor.listener = listener
     
     let offGameBuilder = OffGameBuilder(dependency: component)
     let inGameBuilder = InGameBuilder(dependency: component)
-    return LoggedInRouter(interactor: interactor, viewController: component.LoggedInViewController, offGameBuildable: offGameBuilder, inGameBuilder: inGameBuilder)
+    let router = LoggedInRouter(interactor: interactor, viewController: component.LoggedInViewController, offGameBuildable: offGameBuilder, inGameBuilder: inGameBuilder)
+    return (router, interactor)
   }
 }
 

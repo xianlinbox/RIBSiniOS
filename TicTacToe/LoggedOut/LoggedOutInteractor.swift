@@ -24,7 +24,6 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
   
   weak var router: LoggedOutRouting?
   weak var listener: LoggedOutListener?
-  
   override init(presenter: LoggedOutPresentable) {
     super.init(presenter: presenter)
     presenter.listener = self

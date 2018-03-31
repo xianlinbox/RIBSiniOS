@@ -23,7 +23,7 @@ public protocol LoggedInActionableItem: class {
   func launchGame(with id: String?) -> Observable<(LoggedInActionableItem, ())>
 }
 
-final class LoggedInInteractor: Interactor, LoggedInInteractable {
+final class LoggedInInteractor: Interactor, LoggedInInteractable, LoggedInActionableItem {
   weak var router: LoggedInRouting?
   weak var listener: LoggedInListener?
   
@@ -49,6 +49,11 @@ final class LoggedInInteractor: Interactor, LoggedInInteractable {
   func startGame() {
     router?.routeToInGame()
   }
+  
+  func launchGame(with id: String?) -> Observable<(LoggedInActionableItem, ())> {
+    return Observable.just((self,()))
+  }
+  
   
   //Mark: - private
   private let mutableScoreStream: MutableScoreStream
